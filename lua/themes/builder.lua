@@ -1,4 +1,4 @@
-function Builder()
+local function Builder()
   local that = {}
 
   local highlights = {}

@@ -126,177 +126,13 @@ local function build(params)
 
   vim.cmd('set termguicolors')
 
--- 							*hl-ColorColumn*
--- ColorColumn	Used for the columns set with 'colorcolumn'.
--- 							*hl-Conceal*
--- Conceal		Placeholder characters substituted for concealed
--- 		text (see 'conceallevel').
--- 							*hl-CurSearch*
--- CurSearch	Used for highlighting a search pattern under the cursor
--- 		(see 'hlsearch').
--- 						*hl-Cursor* *hl-lCursor*
--- Cursor		Character under the cursor.
--- lCursor		Character under the cursor when |language-mapping|
--- 		is used (see 'guicursor').
--- 							*hl-CursorIM*
--- CursorIM	Like Cursor, but used when in IME mode. *CursorIM*
--- 							*hl-CursorColumn*
--- CursorColumn	Screen-column at the cursor, when 'cursorcolumn' is set.
--- 							*hl-CursorLine*
--- CursorLine	Screen-line at the cursor, when 'cursorline' is set.
--- 		Low-priority if foreground (ctermfg OR guifg) is not set.
--- 							*hl-Directory*
--- Directory	Directory names (and other special names in listings).
--- 							*hl-DiffAdd*
--- DiffAdd		Diff mode: Added line. |diff.txt|
--- 							*hl-DiffChange*
--- DiffChange	Diff mode: Changed line. |diff.txt|
--- 							*hl-DiffDelete*
--- DiffDelete	Diff mode: Deleted line. |diff.txt|
--- 							*hl-DiffText*
--- DiffText	Diff mode: Changed text within a changed line. |diff.txt|
--- 							*hl-EndOfBuffer*
--- EndOfBuffer	Filler lines (~) after the end of the buffer.
--- 		By default, this is highlighted like |hl-NonText|.
--- 							*hl-TermCursor*
--- TermCursor	Cursor in a focused terminal.
--- 							*hl-TermCursorNC*
--- TermCursorNC	Cursor in an unfocused terminal.
--- 							*hl-ErrorMsg*
--- ErrorMsg	Error messages on the command line.
--- 							*hl-WinSeparator*
--- WinSeparator	Separators between window splits.
--- 							*hl-Folded*
--- Folded		Line used for closed folds.
--- 							*hl-FoldColumn*
--- FoldColumn	'foldcolumn'
--- 							*hl-SignColumn*
--- SignColumn	Column where |signs| are displayed.
--- 							*hl-IncSearch*
--- IncSearch	'incsearch' highlighting; also used for the text replaced with
--- 		":s///c".
--- 							*hl-Substitute*
--- Substitute	|:substitute| replacement text highlighting.
---
--- 							*hl-LineNr*
--- LineNr		Line number for ":number" and ":#" commands, and when 'number'
--- 		or 'relativenumber' option is set.
--- 							*hl-LineNrAbove*
--- LineNrAbove	Line number for when the 'relativenumber'
--- 		option is set, above the cursor line.
--- 							*hl-LineNrBelow*
--- LineNrBelow	Line number for when the 'relativenumber'
--- 		option is set, below the cursor line.
--- 							*hl-CursorLineNr*
--- CursorLineNr	Like LineNr when 'cursorline' is set and 'cursorlineopt'
--- 		contains "number" or is "both", for the cursor line.
--- 							*hl-CursorLineFold*
--- CursorLineFold	Like FoldColumn when 'cursorline' is set for the cursor line.
--- 							*hl-CursorLineSign*
--- CursorLineSign	Like SignColumn when 'cursorline' is set for the cursor line.
--- 							*hl-MatchParen*
--- MatchParen	Character under the cursor or just before it, if it
--- 		is a paired bracket, and its match. |pi_paren.txt|
---
--- 							*hl-ModeMsg*
--- ModeMsg		'showmode' message (e.g., "-- INSERT --").
--- 							*hl-MsgArea*
--- MsgArea		Area for messages and cmdline.
--- 							*hl-MsgSeparator*
--- MsgSeparator	Separator for scrolled messages |msgsep|.
--- 							*hl-MoreMsg*
--- MoreMsg		|more-prompt|
--- 							*hl-NonText*
--- NonText		'@' at the end of the window, characters from 'showbreak'
--- 		and other characters that do not really exist in the text
--- 		(e.g., ">" displayed when a double-wide character doesn't
--- 		fit at the end of the line). See also |hl-EndOfBuffer|.
--- 							*hl-Normal*
--- Normal		Normal text.
--- 							*hl-NormalFloat*
--- NormalFloat	Normal text in floating windows.
--- 							*hl-FloatBorder*
--- FloatBorder	Border of floating windows.
--- 							*hl-FloatTitle*
--- FloatTitle	Title of floating windows.
--- 							*hl-NormalNC*
--- NormalNC	Normal text in non-current windows.
--- 							*hl-Pmenu*
--- Pmenu		Popup menu: Normal item.
--- 							*hl-PmenuSel*
--- PmenuSel	Popup menu: Selected item.
--- 							*hl-PmenuKind*
--- PmenuKind	Popup menu: Normal item "kind".
--- 							*hl-PmenuKindSel*
--- PmenuKindSel	Popup menu: Selected item "kind".
--- 							*hl-PmenuExtra*
--- PmenuExtra	Popup menu: Normal item "extra text".
--- 							*hl-PmenuExtraSel*
--- PmenuExtraSel	Popup menu: Selected item "extra text".
--- 							*hl-PmenuSbar*
--- PmenuSbar	Popup menu: Scrollbar.
--- 							*hl-PmenuThumb*
--- PmenuThumb	Popup menu: Thumb of the scrollbar.
--- 							*hl-Question*
--- Question	|hit-enter| prompt and yes/no questions.
--- 							*hl-QuickFixLine*
--- QuickFixLine	Current |quickfix| item in the quickfix window. Combined with
---                 |hl-CursorLine| when the cursor is there.
--- 							*hl-Search*
--- Search		Last search pattern highlighting (see 'hlsearch').
--- 		Also used for similar items that need to stand out.
--- 							*hl-SpecialKey*
--- SpecialKey	Unprintable characters: Text displayed differently from what
--- 		it really is. But not 'listchars' whitespace. |hl-Whitespace|
--- 							*hl-SpellBad*
--- SpellBad	Word that is not recognized by the spellchecker. |spell|
--- 		Combined with the highlighting used otherwise.
--- 							*hl-SpellCap*
--- SpellCap	Word that should start with a capital. |spell|
--- 		Combined with the highlighting used otherwise.
--- 							*hl-SpellLocal*
--- SpellLocal	Word that is recognized by the spellchecker as one that is
--- 		used in another region. |spell|
--- 		Combined with the highlighting used otherwise.
--- 							*hl-SpellRare*
--- SpellRare	Word that is recognized by the spellchecker as one that is
--- 		hardly ever used. |spell|
--- 		Combined with the highlighting used otherwise.
--- 							*hl-StatusLine*
--- StatusLine	Status line of current window.
--- 							*hl-StatusLineNC*
--- StatusLineNC	Status lines of not-current windows.
--- 		Note: If this is equal to "StatusLine", Vim will use "^^^" in
--- 		the status line of the current window.
--- 							*hl-TabLine*
--- TabLine		Tab pages line, not active tab page label.
--- 							*hl-TabLineFill*
--- TabLineFill	Tab pages line, where there are no labels.
--- 							*hl-TabLineSel*
--- TabLineSel	Tab pages line, active tab page label.
--- 							*hl-Title*
--- Title		Titles for output from ":set all", ":autocmd" etc.
--- 							*hl-Visual*
--- Visual		Visual mode selection.
--- 							*hl-VisualNOS*
--- VisualNOS	Visual mode selection when vim is "Not Owning the Selection".
--- 							*hl-WarningMsg*
--- WarningMsg	Warning messages.
--- 							*hl-Whitespace*
--- Whitespace	"nbsp", "space", "tab", "multispace", "lead" and "trail"
--- 		in 'listchars'.
--- 							*hl-WildMenu*
--- WildMenu	Current match in 'wildmenu' completion.
--- 							*hl-WinBar*
--- WinBar		Window bar of current window.
--- 							*hl-WinBarNC*
--- WinBarNC	Window bar of not-current windows.
 local builder = Builder()
 
 builder
   .highlight('Bold', { guifg = nil, guibg = nil, gui = 'bold', guisp = nil })
   .highlight('ColorColumn', { guifg = nil, guibg = bg_secondary, gui = 'none', guisp = nil })
   -- highlight('Conceal', { guifg = c.fg_conceal, guibg = bg_primary, gui = nil, guisp = nil })
+  .highlight('CurSearch', { guifg = bg_primary, guibg = error, gui = nil, guisp = nil })
   .highlight('Cursor', { guifg = bg_primary, guibg = fg_primary, gui = nil, guisp = nil })
   .highlight('CursorColumn', { guifg = nil, guibg = bg_selection, gui = 'none', guisp = nil })
   .highlight('CursorLine', { guifg = nil, guibg = bg_selection, gui = 'none', guisp = nil })
@@ -316,6 +152,7 @@ builder
   .highlight('MoreMsg', { guifg = info, guibg = nil, gui = nil, guisp = nil })
   .highlight('NonText', { guifg = bg_primary, guibg = 'none', gui = 'none', guisp = 'none' })
   .highlight('Normal', { guifg = fg_primary, guibg = bg_primary, gui = nil, guisp = nil })
+  .highlight('NormalFloat', { guifg = 'none', guibg = bg_primary, gui = nil, guisp = nil })
   .highlight('PMenu', { guifg = fg_primary, guibg = bg_secondary, gui = 'none', guisp = nil })
   .highlight('PMenuSel', { guifg = bg_secondary, guibg = fg_primary, gui = nil, guisp = nil })
   .highlight('Question', { guifg = info, guibg = nil, gui = nil, guisp = nil })
@@ -650,6 +487,7 @@ builder
   .link('NvimTreeFolderName', 'NvimTreeNormal')
 
   -- TREESITTER CONTEXT
+  .highlight('TreesitterContext', { guifg = 'none', guibg = bg_secondary, gui = 'none', guisp = 'none' })
   .highlight('TreesitterContextLineNumber', G.TextSecondary)
 
   -- TROUBLE
