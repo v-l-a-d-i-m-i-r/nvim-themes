@@ -307,7 +307,7 @@ builder
   .link('@type.qualifier', 'keyword')  -- type qualifiers (e.g. `const`) (public, static abstract, tested with typescript)
 
   .link('@storageclass', 'StorageClass')    -- modifiers that affect storage in memory or life-time
-  .highlight('@attribute', G.Text)       -- attribute annotations (e.g. Python decorators)
+  .highlight('@attribute', G.Function)       -- attribute annotations (e.g. Python decorators)
   .highlight('@field', G.Text)           -- object and struct fields
   .highlight('@property', G.Text)        -- similar to `@field`
 
