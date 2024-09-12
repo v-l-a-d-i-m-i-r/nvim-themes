@@ -477,14 +477,22 @@ builder
   .highlight('IndentBlanklineContextChar', G.TextSecondary)
 
   -- NVIM TREE --
-  .highlight('NvimTreeNormal', { guifg = fg_primary, guibg = 'none', gui = 'none', guisp = 'none'})
+  .highlight('NvimTreeGitDeleted', G.SignDelete)
+  .highlight('NvimTreeGitDirty', G.SignChange)
+  .highlight('NvimTreeGitMerge', G.SignChange)
+  .highlight('NvimTreeGitNew', G.SignAdd)
+  .highlight('NvimTreeGitRenamed', G.SignAdd)
+  .highlight('NvimTreeGitStaged', G.SignAdd)
   .highlight('NvimTreeIndentMarker', G.IndentGuides)
+  .highlight('NvimTreeNormal', { guifg = fg_primary, guibg = 'none', gui = 'none', guisp = 'none'})
+  .highlight('NvimTreeOpenedFile', G.SignAdd)
   .link('NvimTreeCursorLine', 'CursorLine')
   .link('NvimTreeCursorLineNr', 'CursorLineNr')
-  .link('NvimTreeFolderIcon', 'Keyword')
-  .link('NvimTreeSpecialFile', 'NvimTreeNormal')
   .link('NvimTreeExecFile', 'NvimTreeNormal')
+  .link('NvimTreeFolderIcon', 'Keyword')
   .link('NvimTreeFolderName', 'NvimTreeNormal')
+  .link('NvimTreeRootFolder', 'Keyword')
+  .link('NvimTreeSpecialFile', 'NvimTreeNormal')
 
   -- TREESITTER CONTEXT
   .highlight('TreesitterContext', { guifg = 'none', guibg = bg_secondary, gui = 'none', guisp = 'none' })
