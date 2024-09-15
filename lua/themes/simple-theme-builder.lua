@@ -153,6 +153,7 @@ builder
   .highlight('NonText', { guifg = bg_primary, guibg = 'none', gui = 'none', guisp = 'none' })
   .highlight('Normal', { guifg = fg_primary, guibg = bg_primary, gui = nil, guisp = nil })
   .highlight('NormalFloat', { guifg = 'none', guibg = bg_primary, gui = nil, guisp = nil })
+  .highlight('FloatBorder', { guifg = fg_primary, guibg = bg_primary, gui = nil, guisp = nil })
   .highlight('PMenu', { guifg = fg_primary, guibg = bg_secondary, gui = 'none', guisp = nil })
   .highlight('PMenuSel', { guifg = bg_secondary, guibg = fg_primary, gui = nil, guisp = nil })
   .highlight('Question', { guifg = info, guibg = nil, gui = nil, guisp = nil })
@@ -443,6 +444,9 @@ builder
   .unhighlight('@lsp.type.type') -- Type
   .unhighlight('@lsp.type.typeParameter') -- TypeDef
   .unhighlight('@lsp.type.variable') -- Identifier
+
+  -- LSP Info --
+  .link('LspInfoBorder', 'FloatBorder')
 
   -- TELESCOPE
   .highlight('TelescopeSelection', { guifg = fg_primary, guibg = bg_selection, guisp = nil, gui = nil })
