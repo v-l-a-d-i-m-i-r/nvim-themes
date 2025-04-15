@@ -6,6 +6,8 @@ local function Builder()
   local unhighlights = {}
 
   that.highlight = function(group, props)
+    that.unhighlight(group)
+
     table.insert(highlights, {
       group = group,
       props = props,
@@ -15,6 +17,8 @@ local function Builder()
   end
 
   that.link = function(source_group, target_group)
+    that.unhighlight(source_group)
+
     table.insert(links, {
       source_group = source_group,
       target_group = target_group,
