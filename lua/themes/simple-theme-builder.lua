@@ -447,6 +447,7 @@ builder
 
   -- LSP Info --
   .link('LspInfoBorder', 'FloatBorder')
+  .highlight('LspReferenceTarget', { guifg = nil, guibg = bg_primary, gui = nil, guisp = nil })
 
   -- TELESCOPE
   .highlight('TelescopeSelection', { guifg = fg_primary, guibg = bg_selection, guisp = nil, gui = nil })
@@ -477,6 +478,7 @@ builder
   .highlight('GitSignsDelete', G.SignDelete)
   .highlight('GitSignsChange', G.SignChange)
 
+  -- INDENT BLANKLINE
   .highlight('IndentBlanklineChar', G.IndentGuides)
   .highlight('IndentBlanklineContextChar', G.TextSecondary)
 
@@ -489,7 +491,7 @@ builder
   .highlight('NvimTreeGitStaged', G.SignAdd)
   .highlight('NvimTreeIndentMarker', G.IndentGuides)
   .highlight('NvimTreeNormal', { guifg = fg_primary, guibg = 'none', gui = 'none', guisp = 'none'})
-  .highlight('NvimTreeOpenedFile', G.SignAdd)
+  .highlight('NvimTreeOpenedHL', G.SignAdd)
   .link('NvimTreeCursorLine', 'CursorLine')
   .link('NvimTreeCursorLineNr', 'CursorLineNr')
   .link('NvimTreeExecFile', 'NvimTreeNormal')
@@ -497,6 +499,7 @@ builder
   .link('NvimTreeFolderName', 'NvimTreeNormal')
   .link('NvimTreeRootFolder', 'Keyword')
   .link('NvimTreeSpecialFile', 'NvimTreeNormal')
+  .link('NvimTreeImageFile', 'NvimTreeNormal')
 
   -- TREESITTER CONTEXT
   .highlight('TreesitterContext', { guifg = 'none', guibg = bg_secondary, gui = 'none', guisp = 'none' })
